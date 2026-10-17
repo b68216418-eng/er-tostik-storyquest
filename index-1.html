@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#182c4e">
+<title>Er Tóstik — StoryQuest</title>
+<style>
+:root{--navy:#182c4e;--blue:#315b8a;--gold:#f4c95d;--cream:#fff9e9;--ink:#18233b;--green:#2f8f68;--red:#c94c4c}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:linear-gradient(135deg,#132541,#294c70);color:var(--ink);min-height:100vh;padding:18px}
+.wrap{max-width:820px;margin:0 auto}.top{display:flex;justify-content:space-between;align-items:center;color:white;gap:12px;margin:4px 0 18px}.logo{font-weight:900;letter-spacing:.5px}.pill{border:1px solid #ffffff55;border-radius:999px;padding:7px 12px;font-size:13px}
+.card{background:var(--cream);border:3px solid var(--gold);border-radius:24px;padding:clamp(18px,4vw,34px);box-shadow:0 16px 35px #07152a66}
+h1{font-size:clamp(28px,6vw,46px);line-height:1.05;margin:10px 0;color:var(--navy)}h2{margin:0 0 12px;color:var(--navy)}p{line-height:1.55}.sub{color:#526079}.hero{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}.heroicon{background:#f7e8b5;border-radius:24px;padding:8px;text-align:center;overflow:hidden}.heroicon img{display:block;width:clamp(100px,23vw,180px);height:180px;max-height:34vw;object-fit:cover;object-position:center top;border-radius:18px}.avatarface{display:block;width:76px;height:88px;object-fit:cover;object-position:center top;background:white;border-radius:14px;padding:3px;border:3px solid var(--blue)}.face{padding:5px;background:#fff;border:2px solid #e0d6bd;border-radius:14px}.face img{display:block;width:58px;height:66px;object-fit:cover;object-position:center top;border-radius:9px}.face[aria-pressed="true"]{outline:3px solid var(--gold)}
+button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:14px;padding:13px 17px;font-weight:800;transition:transform .12s,filter .12s}button:active{transform:scale(.98)}.primary{background:var(--navy);color:white}.secondary{background:#e5eaf2;color:var(--navy)}.gold{background:var(--gold);color:var(--navy)}.wide{width:100%;margin-top:12px}.hidden{display:none!important}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.field{display:grid;gap:6px;margin:12px 0}.field input,.field select{width:100%;padding:12px;border-radius:12px;border:1px solid #cbd3df;background:white}.avatar{display:flex;align-items:center;gap:14px;background:#f3edd9;border-radius:16px;padding:12px;margin:12px 0}.avatarface{font-size:50px;background:white;border-radius:14px;padding:5px 12px}.swatches{display:flex;gap:8px}.swatch{width:32px;height:32px;border:3px solid white;box-shadow:0 0 0 1px #aab2bf;border-radius:50%;padding:0}.swatch[aria-pressed="true"]{box-shadow:0 0 0 3px var(--navy)}
+.stats{display:flex;justify-content:space-between;gap:10px;margin-bottom:18px}.stat{background:#edf1f7;border-radius:12px;padding:9px 12px;font-weight:800}.progress{height:9px;background:#e0e5ec;border-radius:99px;overflow:hidden;margin:12px 0 20px}.bar{height:100%;width:0;background:var(--green);transition:width .2s}.tag{font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:900;color:#916b09}.question{font-size:clamp(21px,4vw,29px);font-weight:900;line-height:1.25;margin:12px 0 20px}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answer{min-height:70px;background:white;color:var(--navy);border:2px solid #d8deea;text-align:left}.answer:hover{border-color:var(--blue)}.answer.correct{background:#d9f2e6;border-color:var(--green)}.answer.wrong{background:#ffe2df;border-color:var(--red)}.feedback{font-weight:800;margin:14px 0;min-height:24px}.small{font-size:13px;color:#69758a}.footer{text-align:center;color:#dce7f5;font-size:12px;margin:15px 0}.list{padding-left:20px;line-height:1.7}
+@media(max-width:560px){body{padding:10px}.hero{grid-template-columns:1fr}.heroicon{order:-1;font-size:75px}.answers{grid-template-columns:1fr}.answer{min-height:56px}.top{align-items:flex-start}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div class="logo">✦ STORYQUEST</div><div class="pill">Қазақ ертегілері + English</div></div>
+  <main class="card">
+    <section id="home">
+      <div class="hero">
+        <div>
+          <div class="tag">Бірінші әлем · Қазақ ертегісі</div>
+          <h1>Ер Төстік<br><span style="color:#b17d00">English Quest</span></h1>
+          <p class="sub">Ертегіні таны, ағылшын сөздерін үйрен, ұпай жина! Әр дұрыс жауап сені батыр болуға жақындатады.</p>
+        </div>
+        <div class="heroicon" aria-label="Ер Төстік"><img src="assets/hero-illustration.png" alt="Ер Төстік пен оның атының ертегілік суреті"></div>
+      </div>
+      <div class="avatar">
+        <img id="avatarFace" class="avatarface" src="assets/avatar-hero.png" alt="Таңдалған кейіпкер">
+        <div style="flex:1">
+          <strong id="avatarLabel">Сенің кейіпкерің</strong>
+          <div class="small">Атың мен аватарыңды таңда</div>
+        </div>
+      </div>
+      <div class="field"><label for="playerName"><strong>Ойыншының аты</strong></label><input id="playerName" maxlength="18" placeholder="Мысалы, Aigerim"></div>
+      <div class="field"><strong>Аватар таңда</strong><div class="row" id="faces">
+        <button class="secondary face" data-face="assets/avatar-hero.png" aria-pressed="true"><img src="assets/avatar-hero.png" alt="Ер Төстік"></button><button class="secondary face" data-face="assets/avatar-hero2.png" aria-pressed="false"><img src="assets/avatar-hero2.png" alt="Кенжекей"></button><button class="secondary face" data-face="assets/avatar-horse.png" aria-pressed="false"><img src="assets/avatar-horse.png" alt="Шалқұйрық"></button><button class="secondary face" data-face="assets/avatar-elder.png" aria-pressed="false"><img src="assets/avatar-elder.png" alt="Қарт кейіпкер"></button>
+      </div></div>
+      <div class="field"><strong>Кейіпкеріңнің түсі</strong><div class="swatches">
+        <button class="swatch" style="background:#315b8a" data-color="#315b8a" aria-label="Көк" aria-pressed="true"></button><button class="swatch" style="background:#b65c42" data-color="#b65c42" aria-label="Қызыл" aria-pressed="false"></button><button class="swatch" style="background:#498568" data-color="#498568" aria-label="Жасыл" aria-pressed="false"></button><button class="swatch" style="background:#8a62a8" data-color="#8a62a8" aria-label="Күлгін" aria-pressed="false"></button>
+      </div></div>
+      <button id="startBtn" class="primary wide">⚔️ Ойынды бастау</button>
+      <p class="small">Демо-нұсқа: 10 сұрақ · 4 жауап нұсқасы · ұпай және нәтиже. Қосымша ақы немесе аккаунт қажет емес.</p>
+    </section>
+    <section id="quiz" class="hidden">
+      <div class="stats"><div class="stat">⭐ Ұпай: <span id="score">0</span></div><div class="stat">📜 Сұрақ: <span id="qnum">1/10</span></div></div>
+      <div class="progress"><div id="bar" class="bar"></div></div>
+      <div class="tag" id="chapter">Ертегіден сөздер</div>
+      <div id="qtext" class="question"></div>
+      <div id="answers" class="answers"></div>
+      <div id="feedback" class="feedback" aria-live="polite"></div>
+      <button id="nextBtn" class="gold wide hidden">Келесі сұрақ →</button>
+    </section>
+    <section id="result" class="hidden">
+      <div class="hero"><div><div class="tag">Сапар аяқталды!</div><h1 id="resultTitle">Жарайсың, батыр!</h1><p id="resultText"></p></div><div class="heroicon" id="resultIcon">🏆</div></div>
+      <div class="stats"><div class="stat">⭐ Ұпай: <span id="finalScore">0</span>/100</div><div class="stat">🎯 Дұрыс: <span id="correctCount">0</span>/10</div></div>
+      <h2>Есте сақтайтын сөздер</h2>
+      <ul class="list" id="wordList"></ul>
+      <button id="againBtn" class="primary wide">🔁 Қайта ойнау</button>
+      <button id="homeBtn" class="secondary wide">Басқы бетке қайту</button>
+    </section>
+  </main>
+  <div class="footer">StoryQuest · Ер Төстікке негізделген ағылшын тіліне арналған оқу ойыны</div>
+</div>
+<script>
+const questions=[
+ {word:"brave",kaz:"Батыл",q:"“Brave” сөзінің қазақша мағынасы қандай?",a:["Батыл","Қорқақ","Ашулы","Шаршаған"],correct:0,example:"Er Tóstik is brave — Ер Төстік батыл."},
+ {word:"horse",kaz:"Жылқы / ат",q:"Шалқұйрық — Ер Төстіктің faithful ...",a:["bird","horse","snake","friend"],correct:1,example:"horse — ат"},
+ {word:"clever",kaz:"Ақылды / тапқыр",q:"Кенжекей өте ... болды. “Ақылды” сөзін таңда.",a:["weak","angry","clever","sad"],correct:2,example:"clever — ақылды, тапқыр"},
+ {word:"friend",kaz:"Дос",q:"“Дос” сөзінің ағылшынша аудармасы қайсы?",a:["enemy","friend","king","giant"],correct:1,example:"friend — дос"},
+ {word:"strong",kaz:"Күшті",q:"Таусоғар өте ... болған. “Күшті” ағылшынша қалай?",a:["strong","tiny","quiet","slow"],correct:0,example:"strong — күшті"},
+ {word:"giant",kaz:"Алып / дәу",q:"“Giant” дегеніміз не?",a:["Құс","Жылқы","Алып, дәу","Кітап"],correct:2,example:"giant — алып, дәу"},
+ {word:"to help",kaz:"Көмектесу",q:"Ер Төстік балапандарды құтқарды. “Көмектесу” ағылшынша ...",a:["to hide","to help","to lose","to sleep"],correct:1,example:"to help — көмектесу"},
+ {word:"journey",kaz:"Сапар / саяхат",q:"Ер Төстік ұзақ сапарға шықты. “Сапар” деген сөзді тап.",a:["journey","question","answer","village"],correct:0,example:"journey — сапар, саяхат"},
+ {word:"king",kaz:"Хан / патша",q:"“King” сөзінің мағынасы қандай?",a:["Батыр","Дос","Хан / патша","Ат"],correct:2,example:"king — хан, патша"},
+ {word:"loyal",kaz:"Адал / берік",q:"Шалқұйрық Ер Төстікке адал серік болды. “Адал” ағылшынша ...",a:["jealous","loyal","weak","lost"],correct:1,example:"loyal — адал, берік"}
+];
+let idx=0,score=0,answered=false,face="assets/avatar-hero.png",color="#315b8a";
+const $=id=>document.getElementById(id);
+document.querySelectorAll(".face").forEach(b=>b.addEventListener("click",()=>{face=b.dataset.face;$("avatarFace").src=face;document.querySelectorAll(".face").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"))}));
+document.querySelectorAll(".swatch").forEach(b=>b.addEventListener("click",()=>{color=b.dataset.color;$("avatarFace").style.borderColor=color;document.querySelectorAll(".swatch").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"))}));
+$("playerName").addEventListener("input",()=>{$("avatarLabel").textContent=$("playerName").value.trim()||"Сенің кейіпкерің"});
+$("startBtn").onclick=()=>{idx=0;score=0;$("home").classList.add("hidden");$("result").classList.add("hidden");$("quiz").classList.remove("hidden");render()};
+function render(){answered=false;const q=questions[idx];$("score").textContent=score;$("qnum").textContent=`${idx+1}/${questions.length}`;$("bar").style.width=`${idx/questions.length*100}%`;$("chapter").textContent=idx<3?"1-бөлім · Батырды таны":idx<7?"2-бөлім · Достар мен қасиеттер":"3-бөлім · Сапар сынақтары";$("qtext").textContent=q.q;$("feedback").textContent="";$("nextBtn").classList.add("hidden");$("answers").innerHTML="";q.a.forEach((ans,i)=>{let b=document.createElement("button");b.className="answer";b.textContent=["🟦 ","🟨 ","🟩 ","🟥 "][i]+ans;b.onclick=()=>choose(i,b);$("answers").appendChild(b)})}
+function choose(i,btn){if(answered)return;answered=true;const q=questions[idx];[...$("answers").children].forEach((b,j)=>{b.disabled=true;if(j===q.correct)b.classList.add("correct")});if(i===q.correct){score+=10;$("feedback").textContent="Дұрыс! +10 ұпай · "+q.example;$("feedback").style.color="#24714f"}else{$("feedback").textContent="Бұл жолы дұрыс емес. Дұрыс жауап: "+q.a[q.correct]+". "+q.example;$("feedback").style.color="#b43e3e";btn.classList.add("wrong")}$("score").textContent=score;$("bar").style.width=`${(idx+1)/questions.length*100}%`;$("nextBtn").textContent=idx===questions.length-1?"Нәтижені көру →":"Келесі сұрақ →";$("nextBtn").classList.remove("hidden")}
+$("nextBtn").onclick=()=>{idx++;if(idx<questions.length)render();else finish()};
+function finish(){ $("quiz").classList.add("hidden");$("result").classList.remove("hidden");let name=$("playerName").value.trim()||"Батыр";$("resultTitle").textContent=score>=80?`Керемет, ${name}!`:score>=50?`Жақсы жұмыс, ${name}!`:`Тағы бір рет байқап көр, ${name}!`;$("resultText").textContent=score>=80?"Сен Ер Төстіктің сынақтарынан сүрінбей өттің!":score>=50?"Жақсы нәтиже! Сөздерді тағы бір қайталап, ұпайыңды жақсарт.":"Нағыз батыр берілмейді. Сөздерді қайталап, қайта ойна!";$("resultIcon").textContent=score>=80?"🏆":"🗺️";$("finalScore").textContent=score;$("correctCount").textContent=score/10;$("wordList").innerHTML=questions.map(q=>`<li><strong>${q.word}</strong> — ${q.kaz}</li>`).join("")}
+$("againBtn").onclick=()=>{$("result").classList.add("hidden");$("quiz").classList.remove("hidden");idx=0;score=0;render()};
+$("homeBtn").onclick=()=>{$("result").classList.add("hidden");$("home").classList.remove("hidden")};
+</script>
+</body></html>
